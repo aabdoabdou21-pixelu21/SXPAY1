@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SXPay Admin</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<main class="container admin">
+<header class="admin-head"><div><div class="brand"><b>SX</b>Pay <span>ADMIN</span></div><p class="muted">إدارة أخبار الموقع من الهاتف أو الكمبيوتر</p></div><a class="btn secondary" href="index.html">فتح الموقع</a></header>
+
+<section id="loginPanel" class="admin-card"><h1>تسجيل الدخول</h1><p class="muted">استخدم حساب المشرف الذي أنشأته في Supabase Authentication.</p>
+<input id="email" type="email" placeholder="البريد الإلكتروني"><input id="password" type="password" placeholder="كلمة المرور"><button class="btn full" id="login">دخول</button><p id="loginMsg" class="msg"></p></section>
+
+<section id="dashboard" hidden>
+<div class="admin-bar"><div><h1>لوحة التحكم</h1><p id="userEmail" class="muted"></p></div><button class="btn secondary" id="logout">تسجيل الخروج</button></div>
+<div class="admin-grid">
+<form class="admin-card" id="newsForm"><h2>➕ إضافة خبر</h2>
+<input id="title" required maxlength="160" placeholder="عنوان الخبر">
+<select id="category" required><option value="">اختر التصنيف</option><option>Free Fire</option><option>eFootball</option><option>PUBG Mobile</option><option>Blood Strike</option><option>أخبار عامة</option></select>
+<textarea id="excerpt" maxlength="240" placeholder="وصف قصير للخبر"></textarea>
+<textarea id="body" required placeholder="محتوى الخبر"></textarea>
+<label class="upload">📷 صورة الخبر<input id="image" type="file" accept="image/jpeg,image/png,image/webp"></label>
+<div id="preview"></div>
+<label class="check"><input id="published" type="checkbox" checked> نشر الخبر مباشرة</label>
+<button class="btn full" type="submit">حفظ الخبر</button><p id="formMsg" class="msg"></p></form>
+
+<div class="admin-card"><h2>📰 الأخبار الحالية</h2><div id="posts"><p class="muted">جاري التحميل...</p></div></div>
+</div></section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="config.js"></script><script src="admin.js"></script>
+</body></html>

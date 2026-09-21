@@ -1,0 +1,2 @@
+# بعد قبول AdSense استبدل السطر التالي ببيانات Google التي تظهر في حسابك:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
