@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#20e66b"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="./style.css">
+<title>SXPay Gaming | الألعاب</title>
+</head>
+<body>
+<header class="topbar"><div class="container nav">
+<a class="brand" href="./"><b>SX</b>Pay <span>Gaming News & More</span></a>
+<button class="menu-btn" id="menuBtn">☰</button>
+<nav id="nav"><a href="./">الرئيسية</a><a href="./#latest">آخر الأخبار</a><a class="active" href="./games.html">الألعاب</a><a href="./#about">من نحن</a></nav>
+<button class="search-btn" id="searchBtn">⌕</button>
+</div></header>
+<main class="container">
+<section class="hero"><div class="hero-main"><div class="hero-art"><span class="badge">SXPay Gaming</span><div class="hero-content"><p class="eyebrow">GAMES</p><h1>🎮 الألعاب</h1><p>تصفح الألعاب الموجودة في SXPay Gaming واختر اللعبة التي تريدها.</p></div></div></div><aside class="side"><div class="side-card"><div class="logo-mini">SX<span>Pay</span></div><strong>مكتبة الألعاب</strong><small>ابحث عن لعبتك واستعمل التصنيفات للوصول إليها بسرعة.</small></div><div class="ad-box"><small>مساحة إعلانية</small><span>AdSense</span></div></aside></section>
+<section class="layout"><div><div class="section-head"><h2>🎮 جميع الألعاب</h2></div>
+<div class="panel"><input id="gameSearch" type="search" placeholder="ابحث عن لعبة...">
+<div class="categories" id="filters"><button class="cat" data-cat="all" style="cursor:pointer;color:inherit">الكل</button><button class="cat" data-cat="battle" style="cursor:pointer;color:inherit">Battle Royale</button><button class="cat" data-cat="football" style="cursor:pointer;color:inherit">كرة القدم</button><button class="cat" data-cat="action" style="cursor:pointer;color:inherit">أكشن</button><button class="cat" data-cat="pc" style="cursor:pointer;color:inherit">PC</button></div></div>
+<div class="section-head"><h2>الألعاب</h2></div><div class="news-grid" id="gamesGrid"></div>
+</div><aside class="sidebar"><div class="panel"><div class="section-head"><h2>⭐ الألعاب</h2></div><p class="muted">اختر اللعبة من القائمة لعرض خدماتها ومنتجاتها لاحقًا.</p></div><div class="ad-box wide"><small>مساحة AdSense</small><span>إعلان متجاوب</span></div></aside></section>
+</main>
+<footer><div class="container footer-grid"><div><div class="brand">SX<b>Pay</b></div><p>Gaming News & More</p></div><div><h3>روابط</h3><a href="./">الرئيسية</a><a href="./games.html">الألعاب</a></div><div><h3>قانوني</h3><a href="#">سياسة الخصوصية</a><a href="#">شروط الاستخدام</a><a href="#">اتصل بنا</a></div><div class="ad-box"><small>AdSense</small></div></div><div class="copyright">© 2026 SXPay Gaming — جميع الحقوق محفوظة</div></footer>
+<script>
+const games=[['Free Fire','battle','🔥','خدمات Free Fire'],['PUBG Mobile','battle','🔫','خدمات PUBG Mobile'],['Blood Strike','battle','⚡','خدمات Blood Strike'],['Fortnite','battle','🟣','محتوى Fortnite'],['Call of Duty Mobile','action','🎯','خدمات COD Mobile'],['eFootball','football','⚽','خدمات eFootball'],['EA SPORTS FC','football','🏆','خدمات كرة القدم'],['Minecraft','pc','⛏️','Minecraft'],['GTA V','pc','🚗','GTA V'],['Roblox','pc','🧱','Roblox'],['Valorant','pc','💥','Valorant'],['League of Legends','pc','🛡️','League of Legends'],['Brawl Stars','action','⭐','Brawl Stars'],['Clash of Clans','action','🏰','Clash of Clans'],['Resident Evil','action','🧟','Resident Evil'],['Among Us','action','👾','Among Us']];
+let cat='all';const grid=document.getElementById('gamesGrid'),q=document.getElementById('gameSearch');
+function render(){let s=q.value.toLowerCase();let a=games.filter(x=>(cat==='all'||x[1]===cat)&&x[0].toLowerCase().includes(s));grid.innerHTML=a.length?a.map(x=>`<article class="news-card"><div class="thumb">${x[2]}</div><div class="news-body"><span class="tag">${x[1]}</span><h3>${x[0]}</h3><p class="meta">${x[3]}</p><br><button class="btn" onclick="chooseGame('${x[0].replace(/'/g,"\'")}')">عرض اللعبة</button></div></article>`).join(''):'<p class="muted">لم نجد اللعبة.</p>';}
+function chooseGame(n){alert('تم اختيار: '+n+'\nيمكن ربطها بصفحة المنتجات لاحقًا.');}
+document.querySelectorAll('#filters .cat').forEach(b=>b.onclick=()=>{cat=b.dataset.cat;render()});q.oninput=render;render();
+document.getElementById('menuBtn').onclick=()=>document.getElementById('nav').classList.toggle('open');
+</script>
+</body></html>
